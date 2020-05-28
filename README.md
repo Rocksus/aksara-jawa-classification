@@ -6,6 +6,6 @@ tba
 
 # Code Organization
 ## Frontend
-Please click [here](Frontend) to view the frontend
+Please click [here](frontend) to view the frontend
 ## Backend
 Please click [here](Backend) to view the backend

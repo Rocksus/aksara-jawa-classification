@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #000000;
 }
 
 .App-logo {
@@ -14,14 +15,19 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #000000;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-header h1 {
+  font-family: 'Mirza', sans-serif;
+  letter-spacing: 5px;
 }
 
 .App-link {
@@ -35,4 +41,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Sketch-description {
+  color: white;
+  font-size: calc(10px + 2vmin);
 }
