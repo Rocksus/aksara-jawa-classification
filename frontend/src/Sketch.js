@@ -1,5 +1,6 @@
 import React from 'react'
 import p5 from 'p5'
+import sendData from './Client'
 
 class Sketch extends React.Component {
     constructor(props) {
@@ -7,7 +8,8 @@ class Sketch extends React.Component {
         //p5 instance mode requires a reference on the DOM to mount the sketch
         //So we use react's createRef function to give p5 a reference
         this.renderRef = React.createRef()
-        this.buttonRef = React.createRef()
+        this.resetRef = React.createRef()
+        this.classifyRef = React.createRef()
     }
     
     // This uses p5's instance mode for sketch creation and namespacing
@@ -25,9 +27,9 @@ class Sketch extends React.Component {
             if (p.mouseIsPressed) {
                 p.line(p.pmouseX, p.pmouseY, p.mouseX, p.mouseY);
             }
-            if (this.buttonRef.current.value === "true") {
+            if (this.resetRef.current.value === "true") {
                 p.resetCanvas()
-                this.buttonRef.current.value = false
+                this.resetRef.current.value = false
             }
         }
 
@@ -37,11 +39,12 @@ class Sketch extends React.Component {
     }
 
     classifyImage() {
-        // var c=document.getElementById("DrawCanvas");
-        // var d=c.toDataURL("image/png");
-        // var w=window.open('about:blank','image from canvas');
-        // w.document.write("<img src='"+d+"' alt='from canvas'/>");
-        this.buttonRef.current.value = true
+        var c=document.getElementById("DrawCanvas");
+        sendData(c);
+    }
+
+    resetCanvas() {
+        this.resetRef.current.value = true
     }
 
     componentDidMount() {
@@ -55,7 +58,8 @@ class Sketch extends React.Component {
             <div className="Sketch">
                 <div ref={this.renderRef}>
                 </div>
-                    <button ref={this.buttonRef} onClick={this.classifyImage.bind(this)}>Classify</button>
+                    <button ref={this.classifyRef} onClick={this.classifyImage.bind(this)}>Classify</button>
+                    <button ref={this.resetRef} onClick={this.resetCanvas.bind(this)}>Reset</button>
             </div>
         )
     }
