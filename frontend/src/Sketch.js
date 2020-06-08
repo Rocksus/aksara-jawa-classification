@@ -1,6 +1,7 @@
 import React from 'react'
 import p5 from 'p5'
 import sendData from './Client'
+import Label from './Label'
 
 class Sketch extends React.Component {
     constructor(props) {
@@ -10,6 +11,7 @@ class Sketch extends React.Component {
         this.renderRef = React.createRef()
         this.resetRef = React.createRef()
         this.classifyRef = React.createRef()
+        this.labelRef = React.createRef()
     }
     
     // This uses p5's instance mode for sketch creation and namespacing
@@ -40,11 +42,12 @@ class Sketch extends React.Component {
 
     classifyImage() {
         var c=document.getElementById("DrawCanvas");
-        sendData(c);
+        sendData(c, this.labelRef.current);
     }
 
     resetCanvas() {
         this.resetRef.current.value = true
+        this.labelRef.current.changeState(0, "")
     }
 
     componentDidMount() {
@@ -55,11 +58,16 @@ class Sketch extends React.Component {
     render() {
         return (
             //This div will contain our p5 sketch
+            <div>
+                <Label ref={this.labelRef}></Label>
+                
+      <p className="Sketch-description">try drawing here and then clicking classify!</p>
             <div className="Sketch">
                 <div ref={this.renderRef}>
                 </div>
                     <button ref={this.classifyRef} onClick={this.classifyImage.bind(this)}>Classify</button>
                     <button ref={this.resetRef} onClick={this.resetCanvas.bind(this)}>Reset</button>
+            </div>
             </div>
         )
     }

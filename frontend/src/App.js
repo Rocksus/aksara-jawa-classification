@@ -8,7 +8,6 @@ function App() {
       <header className="App-header">
         <h1>Let's Learn Aksara Jawa!</h1>
       </header>
-      <p className="Sketch-description">try drawing here and then clicking classify!</p>
       <Sketch />
     </div>
   );

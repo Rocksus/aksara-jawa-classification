@@ -47,3 +47,13 @@
   color: white;
   font-size: calc(10px + 2vmin);
 }
+
+.Label {
+  display:inline-flex;
+}
+
+.Label p {
+  color: white;
+  font-family: 'Mirza', sans-serif;
+  font-size: calc(20px + 6vmin);
+}

@@ -36,7 +36,7 @@ class Handler(BaseHTTPRequestHandler):
         result = classifier.classify(gs)
 
         resp = BytesIO()
-        resp.write(b'{"classID":%d, "name":%b, "confidence":%f}' % (result['classID'], classNames[result['classID']].encode('utf-8'), result['confidence']))
+        resp.write(b'{"classID":%d, "name":"%b", "confidence":%f}' % (result['classID'], classNames[result['classID']].encode('utf-8'), result['confidence']))
         self._sendSuccess()
         self.wfile.write(resp.getvalue())
 
