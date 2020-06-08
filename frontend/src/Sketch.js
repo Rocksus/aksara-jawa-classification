@@ -1,5 +1,6 @@
 import React from 'react'
 import p5 from 'p5'
+import sendData from './Client'
 
 class Sketch extends React.Component {
     constructor(props) {
@@ -39,9 +40,7 @@ class Sketch extends React.Component {
 
     classifyImage() {
         var c=document.getElementById("DrawCanvas");
-        var d=c.toDataURL("image/png");
-        var w=window.open('about:blank','image from canvas');
-        w.document.write("<img src='"+d+"' alt='from canvas'/>");
+        sendData(c);
     }
 
     resetCanvas() {
