@@ -1,12 +1,30 @@
 import React from 'react'
 import arrow from './arrow.png'
 
+
+const ExampleContent = (className) => {
+    return (
+        <div className="Example-content">
+            <img src={`./classification_orig/${className}.png`} alt="Example"></img>
+            <h2>{className}</h2>
+        </div>
+    )
+}
+
 class Sidebar extends React.Component {
     constructor(props) {
         super(props)
         
+        let classNames = ['ba', 'ca', 'da', 'dha', 'ga', 'ha', 'ja', 'ka', 'la', 'ma', 'na', 'nga', 'nya', 'pa', 'ra', 'sa', 'ta', 'tha', 'wa', 'ya']
+        let contentData = []
+
+        classNames.forEach((v, i) => {
+            contentData.push(ExampleContent(v))
+        })
+
         this.state = {
-            show:false
+            show:false,
+            content:contentData
         }
     }
 
@@ -26,6 +44,9 @@ class Sidebar extends React.Component {
                 </div>
                 <div className="Sidebar-content">
                     <h1>Examples</h1>
+                    <div className="xkcd">
+                        {this.state.content}
+                    </div>
                 </div>
             </div>
         )

@@ -85,6 +85,7 @@
   background-color: white;
   border-top-left-radius: 5%;
   border-bottom-left-radius: 5%;
+  overflow-y: scroll;
 }
 
 .Sidebar-clicker {
@@ -120,4 +121,18 @@
 .Sidebar h1 {
   font-family: 'Mirza', sans-serif;
   letter-spacing: 2px;
+}
+
+.xkcd {
+  flex-wrap:wrap;
+  display:flex;
+}
+
+.Example-content {
+  flex: 1 0 21%;
+  width:100px;
+}
+
+.Example-content img {
+  width:100px;
 }
