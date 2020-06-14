@@ -2,9 +2,9 @@ import React from 'react'
 import arrow from './arrow.png'
 
 
-const ExampleContent = (className) => {
+const ExampleContent = (className, i) => {
     return (
-        <div className="Example-content">
+        <div className="Example-content" key={i}>
             <img src={`./classification_orig/${className}.png`} alt="Example"></img>
             <h2>{className}</h2>
         </div>
@@ -19,7 +19,7 @@ class Sidebar extends React.Component {
         let contentData = []
 
         classNames.forEach((v, i) => {
-            contentData.push(ExampleContent(v))
+            contentData.push(ExampleContent(v, i))
         })
 
         this.state = {

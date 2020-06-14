@@ -5,13 +5,13 @@ class Label extends React.Component {
         super(props)
         
         this.state = {
-            classID: 0,
+            classID: -1,
             className:""
         }
     }
 
     getClassified = () => {
-        if(this.state.classID===0) {
+        if(this.state.classID===-1) {
             return ""
         }
         return `./classification/${this.state.className}.png`

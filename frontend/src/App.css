@@ -8,10 +8,8 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Main-page {
+  height: 100vh;
 }
 
 .App-header {
@@ -46,6 +44,7 @@
 .Sketch-description {
   color: white;
   font-size: calc(10px + 2vmin);
+  margin-top:0;
 }
 
 .Sketch button {
@@ -55,8 +54,14 @@
   width: 112px;
 }
 
+.Sketch button:hover {
+  background-color: rgb(122, 32, 32);
+  transition: .2s ease-in-out;
+}
+
 .Label {
   display:inline-flex;
+  margin:-5vh;
 }
 
 .Label p {
@@ -135,4 +140,130 @@
 
 .Example-content img {
   width:100px;
+}
+
+.Content-page {
+  color: white;
+  text-align:center;
+  display:inline-block;
+}
+
+.Content-page h1 {
+  font-family: 'Mirza', sans-serif;
+  font-size: calc(20px + 3vmin);
+  letter-spacing: 5px;
+}
+
+.Content-section-1 {
+  width: 70%;
+  text-align: center;
+  margin: auto;
+}
+
+.Content-section-1 p {
+  text-align: justify;
+  text-justify: auto;
+}
+
+.Content-section-2 {
+  width: 70%;
+  text-align: center;
+  margin: auto;
+}
+
+.Content-section-2 p {
+  text-align: justify;
+  text-justify: auto;
+}
+
+.Example-img {
+  max-width:70vmin;
+}
+
+.Content-section-3 {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+.Content-section-3 h1 {
+  width:70%;
+  margin: auto;
+}
+
+.Content-section-3 h2 {
+  font-family: 'Mirza', 'sans-serif';
+  font-size: calc(20px + 5vmin);
+  letter-spacing: 2px;
+}
+
+.Section-container-1 {
+  min-height:400px;
+  background-image: url('img1.jpg');
+  height:600px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding:5vw;
+  margin:0;
+  text-align:left;
+}
+
+.Section-container-2 {
+  min-height:400px;
+  background-image: url('img2.jpg');
+  height:600px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding:5vw;
+  margin:0;
+  text-align:right;
+}
+
+.Content-page p {
+  font-size: calc(12px + 1vmin)
+}
+
+.Info-container {
+  padding:0;
+  margin:0;
+  width:40vmax;
+}
+
+.Section-container-2 .Info-container{
+  float: right;
+}
+
+.Scroll-button {
+  position: absolute;
+  bottom: 1vh;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  margin: 0;
+  padding:0;
+  color:white;
+  font-family: 'Mirza', sans-serif;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+
+.Scroll-button:hover {
+  opacity: 0.7;
+  transition: .3s ease-in-out;
+}
+
+.Scroll-button h2{
+  margin: 0;
+}
+.Arrow-btn {
+  filter: invert(100%);
+}
+
+.Arrow-down {
+  width:40px;
+  margin: auto;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  animation: jump 5s infinite;
 }
