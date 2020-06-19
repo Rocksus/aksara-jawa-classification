@@ -1,12 +1,12 @@
 import axios from 'axios'
 
-async function sendData(canvas) {
+async function sendData(canvas, ref) {
     const file = canvas.toDataURL("image/png");
     let data = new FormData();
     data.append('img', file)
     axios.post(`http://localhost:14022/classify`, data)
         .then(function (response) {
-            console.log(response);
+            ref.changeState(response.data.classID, response.data.name)
         })
         .catch(function (error) {
             console.log(error);

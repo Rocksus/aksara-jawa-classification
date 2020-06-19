@@ -29,14 +29,15 @@ class Handler(BaseHTTPRequestHandler):
         _, encoded = data_url.split(",", 1)
         img_bytes = base64.b64decode(encoded)
         img = Image.open(BytesIO(img_bytes))
+        img = img.resize((112,112))
         img  = np.array(img)
         gs = np.array(img[:,:,0])
-        gs = gs.reshape([-1, 224, 224, 1])
+        gs = gs.reshape([-1, 112, 112, 1])
         
         result = classifier.classify(gs)
 
         resp = BytesIO()
-        resp.write(b'{"classID":%d, "name":%b, "confidence":%f}' % (result['classID'], classNames[result['classID']].encode('utf-8'), result['confidence']))
+        resp.write(b'{"classID":%d, "name":"%b", "confidence":%f}' % (result['classID'], classNames[result['classID']].encode('utf-8'), result['confidence']))
         self._sendSuccess()
         self.wfile.write(resp.getvalue())
 

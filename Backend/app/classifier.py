@@ -4,7 +4,7 @@ import logging
 import numpy as np
 
 this = sys.modules[__name__]
-model_path = 'dummy_model.h5'
+model_path = 'model.h5'
 
 this.classifier = None
 
