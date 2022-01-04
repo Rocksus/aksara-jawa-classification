@@ -4,6 +4,8 @@ services:
     frontend:
         image: 'rocksus/aksara-jawa-frontend:latest'
         build: ./frontend
+        depends_on:
+            - backend
         ports:
             - ${PORT}:80
     backend:
